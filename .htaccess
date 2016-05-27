@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On 
+    RewriteCond %{REQUEST_FILENAME} !-f 
+    RewriteCond %{REQUEST_FILENAME} !-d 
+    RewriteRule ^(.*)$ /ion_auth/index.php/$1 [L] 
+	RewriteCond $1 !^(index\.php)
+</IfModule>
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 /ion_auth/index.php 
+</IfModule>
